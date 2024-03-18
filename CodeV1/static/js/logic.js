@@ -1,35 +1,18 @@
 // Function to create the map
-async function createMap(earthquakeMap) {
-    let tectonicPlates = new L.layerGroup() 
-    let tectonicUrl = 'https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json';
-
-    await d3.json(tectonicUrl).then(plates => {
-        L.geoJson(plates, {
-            color: 'orange',
-            weight: 2
-        }).addTo(tectonicPlates)
-    });
-
+function createMap(earthquakeMap) {
     // Create a tile layer for the base map.
     let streetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
 
-    googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-    });
-
     // Create a baseMaps object to hold the streetmap layer.
     let baseMaps = {
-        "Street Map": streetmap,
-        "Satellite": googleSat
+        "Street Map": streetmap
     };
 
     // Create an overlayMaps object to hold the Earthquakes layer.
     let overlayMaps = {
-        "Earthquakes": earthquakeMap,
-        "Tectonic Plates": tectonicPlates
+        "Earthquakes": earthquakeMap
     };
 
     // Create the map object with options.
@@ -132,5 +115,5 @@ let url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.ge
 d3.json(url)
     .then(createMarkers)
     .catch(error => console.error("Error fetching earthquake data:", error));
-console.log(url);
+    console.log(url);
 
