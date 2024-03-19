@@ -52,7 +52,7 @@ async function createMap(earthquakeMap) {
         let depthLabels = ['<10', '10-30', '30-50', '50-70', '70-90', '90+'];
         let colors = ["#44ce1b", "#bbdb44", "#f7e379", "#f2a134", "#e51f1f", "#990000"];
 
-        div.innerHTML += '<div class="legend-title">Depth Legend</div>';
+        div.innerHTML += '<div class="legend-title">Depth</div>';
 
         // Loop through depth ranges and generate a label with a colored square for each range
         for (let i = 0; i < depthLabels.length; i++) {
