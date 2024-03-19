@@ -1,6 +1,7 @@
 # Mapping Earth Quakes and Tectonic Plates with Leaflet
-*Challenge 15 for UC Berkeley Data Analytics Bootcamp*
-
+*Challenge 15 for UC Berkeley Data Analytics Bootcamp*  
+  
+![Earthquakes](https://github.com/zhengn95/15_Mapping-with-Leaflet/blob/main/Images/7-FinalMapNancy.png)
 ## Background
 The United States Geological Survey, or USGS for short, is responsible for providing scientific data about natural hazards, the health of our ecosystems and environment, and the impacts of climate and land-use change. Their scientists develop new methods and tools to supply timely, relevant, and useful information about the Earth and its processes.
 
