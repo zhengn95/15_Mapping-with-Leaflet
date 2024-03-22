@@ -92,7 +92,7 @@ function createMarkers(data) {
     // Define a scale for the earthquake magnitude to radius
     let radiusScale = d3.scaleLinear()
         .domain([d3.min(earthquakeLoc, d => d.properties.mag), d3.max(earthquakeLoc, d => d.properties.mag)])
-        .range([2, 20]); // Set the minimum and maximum radius
+        .range([2, 40]); // Set the minimum and maximum radius
 
     // Initialize an array to hold earthquake markers.
     let earthquakeMarkers = [];
@@ -112,7 +112,11 @@ function createMarkers(data) {
             weight: 1,
             fillColor: fillColor,
             fillOpacity: 0.7
-        }).bindPopup(`<h3>Magnitude: ${earthquake.properties.mag}</h3><h3>Depth: ${earthquake.geometry.coordinates[2]} km</h3>`);
+        }).bindPopup(`<h3>Location: ${earthquake.properties.title} km</h3>
+            <h3>Magnitude: ${earthquake.properties.mag}</h3>
+            <h3>Longitude: ${earthquake.geometry.coordinates[0]} km</h3>
+            <h3>Latitude: ${earthquake.geometry.coordinates[1]} km</h3>
+            <h3>Depth: ${earthquake.geometry.coordinates[2]} km</h3>`);
 
         // Add the marker to the array
         earthquakeMarkers.push(circle);
